@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Market Analysis Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome Icons (required for social icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-k5G7zUOJXU5Ey7V9eUyoaY3Km4oHCu3I4b6zOfILVu8IoO9hYY3Ktc8dYZsZ3Mn+w8tWz+Kig2dYw+HQGlFx9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #0e0e0e;
+      font-family: 'Segoe UI', sans-serif;
+      color: #ffffff;
+    }
+
+    
+
+    .widget-box {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 255, 255, 0.1);
+      overflow: hidden;
+      margin: 30px auto;
+      width: 95%;
+      height: 90vh;
+    }
+
+    h2 {
+      text-align: center;
+      color: #00ffe7;
+      margin: 10px 0;
+      font-size: 1.5rem;
+    }
+
+    .tradingview-widget-container,
+    iframe {
+      width: 100%;
+      height: calc(90vh - 50px);
+      border: none;
+    }
+
+    
+
+      .widget-box {
+        height: 85vh;
+      }
+
+      .tradingview-widget-container,
+      iframe {
+        height: calc(85vh - 50px);
+      }
+    
+  </style>
+  <style>
+  .widget-box {
+    background-color: #121212;
+    padding: 20px;
+    margin: 40px auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.05);
+    max-width: 1200px;
+  }
+
+  .widget-box h2 {
+    font-size: 1.5rem;
+    color: #00ffe7;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+</style>
+<style>
+/* Basic footer layout */
+.custom-footer {
+  background-color: #111;
+  color: #ccc;
+  padding: 40px 20px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 220px;
+  margin: 20px;
+}
+
+.footer-title {
+  color: #00ffee;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.footer-text, .footer-links li, .footer-links a {
+  font-size: 0.95rem;
+  color: #ccc;
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li a:hover {
+  color: #00ffee;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 20px 0 0;
+  border-top: 1px solid #444;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    margin: 15px 0;
+    text-align: center;
+  }
+}
+</style>
+
+
+</head>
+<body>
+
+  <!-- HEADER -->
+<header>
+  <div class="header-container">
+    <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    {
+      "proName": "BINANCE:BTCUSDT.P",
+      "title": "BTCUSDT.P"
+    },
+    {
+      "proName": "BINANCE:SOLUSDT.P",
+      "title": "SOLUSDT.P"
+    },
+    {
+      "proName": "BINANCE:ETHUSDT.P",
+      "title": "ETHUSDT.P"
+    },
+    {
+      "proName": "BINANCE:XRPUSDT.P",
+      "title": "XRPUSDT.P"
+    },
+    {
+      "proName": "BINANCE:SUIUSDT.P",
+      "title": "SUIUSDT.P"
+    }
+    
+  ],
+  "colorTheme": "dark",
+  "locale": "en",
+  "largeChartUrl": "",
+  "isTransparent": true,
+  "showSymbolLogo": true,
+  "displayMode": "adaptive"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+  </div>
+</header>
+
+<!-- ✅ Full-Width Crypto Screener Section (Dark Theme) -->
+<div class="widget-box" style="width: 100%; max-width: 100vw; padding: 0; margin: 0 auto;">
+  <h2 style="padding-left: 1rem;">📊 Crypto Screener (via TradingView)</h2>
+  <div class="tradingview-widget-container" style="width: 100%; height: 600px;">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+    {
+      "width": "100%",
+      "height": "600",
+      "defaultColumn": "overview",
+      "defaultScreen": "crypto",
+      "market": "crypto",
+      "colorTheme": "dark",
+      "locale": "en"
+    }
+    </script>
+  </div>
+</div>
+
+
+
+<!-- TRADINGVIEW SUPERCHART FULL WIDTH -->
+<!-- Make sure parent containers do not restrict width -->
+<div style="width: 100vw; margin: 0; padding: 0; overflow-x: hidden;">
+  <div style="width: 100%; height: 100vh;">
+    <h2 style="color: #fff; padding: 1rem; background-color: #111;">📈 BTCUSDT Superchart</h2>
+    <div class="tradingview-widget-container" style="width: 100%; height: calc(100vh - 64px);">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+      {
+        "symbol": "BINANCE:BTCUSDT.P",
+        "interval": "D",
+        "theme": "dark",
+        "style": "1",
+        "locale": "en",
+        "allow_symbol_change": true,
+        "backgroundColor": "#1a1a1a",
+        "gridColor": "rgba(242, 242, 242, 0.06)",
+        "hide_top_toolbar": false,
+        "hide_side_toolbar": false,
+        "details": true,
+        "calendar": false,
+        "withdateranges": true,
+        "save_image": true,
+        "show_popup_button": true,
+        "popup_width": "1000",
+        "popup_height": "650",
+        "studies": [],
+        "width": "100%",
+        "height": "100%"
+      }
+      </script>
+    </div>
+  </div>
+</div>
+
+ <!-- ✅ Full-Width CoinGlass Liquidation Heatmap Section -->
+<div class="widget-box" style="width: 100%; max-width: 100vw; padding: 0; margin: 0 auto;">
+  <h2 style="padding-left: 1rem;">🔥 CoinGlass Liquidation Heatmap</h2>
+  <iframe 
+    src="https://www.coinglass.com/pro/futures/LiquidationHeatMap" 
+    loading="lazy"
+    style="width: 100%; height: 700px; border: none; display: block;">
+  </iframe>
+</div>
+
+
+  <!-- ✅ Full-Width Crypto Bubbles Section -->
+<div class="widget-box" style="width: 100%; max-width: 100vw; padding: 0; margin: 0 auto;">
+  <h2 style="padding-left: 1rem;">🔥 Crypto Bubbles</h2>
+  <iframe 
+    src="https://cryptobubbles.net/" 
+    loading="lazy" 
+    style="width: 100%; height: 700px; border: none; display: block;">
+  </iframe>
+</div>
+<!-- ✅ Crypto Heatmap Widget Section (Full Width, Responsive) -->
+<div class="widget-box" style="width: 100%; max-width: 100vw; margin: 0 auto; background-color: #121212;">
+  <h2 style="color: #00ffee; padding: 1rem;">🔥 Crypto Market Heatmap</h2>
+
+  <div class="tradingview-widget-container" style="width: 100%; height: 90vh;">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright">
+      <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
+        <span class="blue-text">Track all markets on TradingView</span>
+      </a>
+    </div>
+
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-crypto-coins-heatmap.js" async>
+    {
+      "dataSource": "Crypto",
+      "blockSize": "market_cap_calc",
+      "blockColor": "24h_close_change|5",
+      "locale": "en",
+      "symbolUrl": "",
+      "colorTheme": "dark",
+      "hasTopBar": true,
+      "isDataSetEnabled": true,
+      "isZoomEnabled": true,
+      "hasSymbolTooltip": true,
+      "isMonoSize": true,
+      "width": "100%",
+      "height": "100%"
+    }
+    </script>
+  </div>
+</div>
+
+
+<!-- ✅ DexScreener Gainers (Full Width, Dark Mode) -->
+<div class="widget-box" style="width: 100%; max-width: 100vw; margin: 0 auto; padding: 0; background-color: #121212;">
+  <h2 style="color: #00ffee; padding: 1rem;">🧪 DexScreener Gainers</h2>
+  <iframe 
+    src="https://dexscreener.com/1h?rankBy=priceChangeH24&order=desc&minLiq=25000&min24HTxns=50&min24HVol=10000" 
+    loading="lazy" 
+    style="width: 100%; height: 90vh; border: none; background-color: #121212; display: block;">
+  </iframe>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- FOOTER -->
+<footer id="site-footer" class="custom-footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3 class="footer-title">About</h3>
+      <p class="footer-text">
+        Multi Chart Frame Analysis offers powerful tools for real-time crypto market insights using advanced chart grids and liquidation heatmaps.
+      </p>
+    </div>
+
+    <div class="footer-section">
+      <h3 class="footer-title">Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="futures.html">Futures Charts</a></li>
+        <li><a href="analysis.html">Futures Analysis</a></li>
+       
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3 class="footer-title">ᴏᴜʀ ꜰᴇᴀᴛᴜʀᴇꜱ</h3>
+      <ul class="footer-links">
+       
+        <li><a href="futures.html#futures-1x1" id="footer-link-1x1" target="_blank">1x1 Grid Chart</a></li>
+        <li><a href="futures.html#futures-2x2" id="footer-link-2x2" target="_blank">2x2 Grid Charts</a></li>
+        <li><a href="futures.html#futures-4x4" id="footer-link-4x4" target="_blank">4x4 Grid Charts</a></li>
+        <li><a href="futures.html#futures-6x6" id="footer-link-6x6" target="_blank">6x6 Grid Charts</a></li>
+
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h3 class="footer-title">Contact</h3>
+      <p class="footer-text">Email: <br><a href="mailto:maihadihoon@gmail.com"><strong>maihadihoon@gmail.com</strong></a></p>
+      
+       <a href="https://twitter.com/maihadihoon" target="_blank" title="Twitter" style="color: #ccc; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a> 
+    <a href="https://t.me/maihadihoon" target="_blank" title="Telegram" style="color: #ccc; font-size: 1.5rem;"><i class="fab fa-telegram-plane"></i></a>
+    <a href="https://instagram.com/abdul___hadi___qureshi" target="_blank" title="Instagram" style="color: #ccc; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+    <a href="https://github.com/gmhadi" target="_blank" title="GitHub" style="color: #ccc; font-size: 1.5rem;"><i class="fab fa-github"></i></a>
+     <a href="https://facebook.com/maihadihoon" target="_blank" title="FaceBook" style="color: #ccc; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a> <br>
+     Design & Developed by : <a href="https://hadi-web.netlify.app/" target="_blank"> 𝐀𝐛𝐝𝐮𝐥 𝐇𝐚𝐝𝐢</a> 
+     <p></p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 𝐀𝐛𝐝𝐮𝐥 𝐇𝐚𝐝𝐢. All rights reserved.</p>
+    
+ 
+</div>
+
+</footer>
+ 
+</body>
+</html>
